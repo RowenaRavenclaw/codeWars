@@ -1,3 +1,10 @@
+import readline from "readline";
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
 function toCamelCase(str) {
   return str
     .toLowerCase() // Convert the string to lowercase
@@ -11,7 +18,8 @@ function toCamelCase(str) {
     .join(""); // Join the words back into a single string
 }
 
-const inputString = "Extract the domain name from a URL";
-const camelCaseName = toCamelCase(inputString);
-
-console.log(camelCaseName); // Output: extractTheDomainNameFromAUrl
+rl.question("Enter a string to convert to camel case: ", (inputString) => {
+  const camelCaseName = toCamelCase(inputString);
+  console.log("Camel case output:", camelCaseName);
+  rl.close();
+});
